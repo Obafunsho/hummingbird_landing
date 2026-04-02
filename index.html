@@ -176,6 +176,22 @@
     animation: fadeUp 0.7s 0.3s forwards;
   }
 
+
+  .hero-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.35s forwards;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
   .hero-body {
     font-size: 17px;
     line-height: 1.75;
@@ -760,6 +776,11 @@
     <h1 class="hero-title">Hummingbird</h1>
     <p class="hero-sub">Cancer referrals, made with certainty.</p>
 
+    <p class="hero-headline">
+      Earlier diagnosis.<br>
+      <em>Safety net with confidence.</em><br>
+      Every decision defensible.
+    </p>
     <p class="hero-body">
       AI that reduces diagnostic uncertainty at the cancer referral decision — safely redirecting low-risk presentations and accelerating high-risk patients through NHS urgent suspected cancer pathways, in 45 seconds.
     </p>
