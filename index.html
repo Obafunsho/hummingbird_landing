@@ -620,6 +620,88 @@
     padding-bottom: 20px;
   }
 
+
+  /* ── SITE SELECTOR LIST ── */
+  .site-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 620px;
+    margin: 0 auto 28px;
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    text-align: left;
+  }
+
+  .site-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 0.5px solid var(--border);
+    gap: 16px;
+    text-decoration: none;
+    transition: background 0.12s;
+  }
+  .site-row:last-child { border-bottom: none; }
+
+  .site-active {
+    cursor: pointer;
+    background: #fff;
+  }
+  .site-active:hover {
+    background: #fafaf8;
+  }
+
+  .site-soon {
+    cursor: default;
+    background: #fafaf8;
+    opacity: 0.72;
+  }
+
+  .site-row-left { flex: 1; }
+
+  .site-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 3px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .site-soon .site-name { color: var(--muted); }
+
+  .site-sub {
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.02em;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .site-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .site-badge-live {
+    background: var(--accent);
+    color: #fff;
+    border: 0.5px solid var(--accent);
+  }
+
+  .site-badge-soon {
+    background: #f5f4f1;
+    color: var(--dim);
+    border: 0.5px solid var(--border);
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
@@ -670,115 +752,126 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO + PLATFORM -->
 <div class="wrap">
   <section class="hero">
 
     <div class="hero-eyebrow">Clinician-authored AI across the cancer pathway</div>
     <h1 class="hero-title">Hummingbird</h1>
     <p class="hero-sub">Cancer referrals, made with certainty.</p>
-    <p class="hero-body">
-      <strong>Earlier cancer diagnosis. Safely reduce referrals. Complete audit trial.</strong><br>
-      Clinician-authored AI that reduces diagnostic uncertainty at the cancer referral decision — safely deflecting low-risk presentations and accelerating high-risk patients through NHS urgent suspected cancer pathways, in 45 seconds.
-    </p>
-    <p class="hero-pdf">Every recommendation generates a defensible PDF for the patient record.</p>
 
-    <!-- IMMEDIATE CTA — above everything else -->
+    <p class="hero-body">
+      AI that reduces diagnostic uncertainty at the cancer referral decision — safely redirecting low-risk presentations and accelerating high-risk patients through NHS urgent suspected cancer pathways, in 45 seconds.
+    </p>
+    <p class="hero-pdf">Every recommendation generates a defensible record for the patient file.</p>
+
+    <!-- SITE SELECTOR -->
     <div class="cta-block" id="assessment">
       <div class="cta-label">Start an assessment — available now</div>
-      <div class="cta-buttons">
-        <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="btn-primary">Colorectal — Lower GI &nbsp;→</a>
+
+      <div class="site-list">
+
+        <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="site-row site-active">
+          <div class="site-row-left">
+            <div class="site-name">Colorectal — Lower GI</div>
+            <div class="site-sub">Bowel cancer · rectal bleeding · change in bowel habit · FIT</div>
+          </div>
+          <span class="site-badge site-badge-live">Available →</span>
+        </a>
+
+        <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="site-row site-active">
+          <div class="site-row-left">
+            <div class="site-name">Upper GI — Oesophagogastric</div>
+            <div class="site-sub">Oesophageal · gastric cancer · dysphagia · H. pylori</div>
+          </div>
+          <span class="site-badge site-badge-live">Available →</span>
+        </a>
+
+        <div class="site-row site-soon">
+          <div class="site-row-left">
+            <div class="site-name">Breast</div>
+            <div class="site-sub">Lump · skin changes · nipple discharge · axillary nodes</div>
+          </div>
+          <span class="site-badge site-badge-soon">Coming soon</span>
+        </div>
+
+        <div class="site-row site-soon">
+          <div class="site-row-left">
+            <div class="site-name">Lung</div>
+            <div class="site-sub">Haemoptysis · unexplained weight loss · chest signs</div>
+          </div>
+          <span class="site-badge site-badge-soon">Coming soon</span>
+        </div>
+
+        <div class="site-row site-soon">
+          <div class="site-row-left">
+            <div class="site-name">Urology — Bladder, Kidney &amp; Prostate</div>
+            <div class="site-sub">Haematuria · PSA · renal mass</div>
+          </div>
+          <span class="site-badge site-badge-soon">Coming soon</span>
+        </div>
+
+        <div class="site-row site-soon">
+          <div class="site-row-left">
+            <div class="site-name">Gynaecology · Haematology · Skin · Head &amp; Neck</div>
+            <div class="site-sub">Further sites in development</div>
+          </div>
+          <span class="site-badge site-badge-soon">Coming soon</span>
+        </div>
+
       </div>
-      <div class="cta-sub-note">Built by consultant surgeons · Validated against NHS guidelines · Enhanced by best evidence</div>
+
+      <div class="cta-sub-note">Built by consultant surgeons · Validated against NHS guidelines · Enhanced by best evidence · University of Birmingham</div>
     </div>
 
   </section>
 
   <div class="divider"></div>
 
-  <!-- PLATFORM GRID -->
-  <section class="platform-section" id="platform">
-    <div class="section-eyebrow">The platform</div>
-    <h2 class="section-title">Every cancer decision.<br>Across the whole pathway.</h2>
+  <!-- SURGICAL DECISIONS -->
+  <section class="platform-section" id="surgical">
+    <div class="section-eyebrow">Surgical decisions</div>
+    <h2 class="section-title">Beyond referral.<br>Into the operating theatre.</h2>
 
-    <div class="platform-grid reveal">
+    <div class="site-list reveal">
 
-      <div class="pillar pillar-live">
-        <div class="pillar-header">
-          <div class="pillar-icon">🎯</div>
-          <div>
-            <div class="pillar-title">Cancer Referral</div>
-            <div class="pillar-status live">Available now</div>
-          </div>
+      <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="site-row site-active">
+        <div class="site-row-left">
+          <div class="site-name">Appendicitis Risk Score</div>
+          <div class="site-sub">Age- and sex-stratified · RIFT Study validated · AAS · AIRS · Shera</div>
         </div>
-        <div class="pillar-body">Clinician-authored AI for NHS Urgent Suspected Cancer pathways. Safely deflects low-risk presentations. Accelerates those who can't wait.</div>
-        <div class="pillar-modules">
-          <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="module-tag active">Colorectal — Lower GI →</a>
-          <div class="module-tag coming">Lung</div>
-          <div class="module-tag coming">Gynaecology</div>
-          <div class="module-tag coming">Haematology</div>
-          <div class="module-tag coming">Skin</div>
-          <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="module-tag active">Upper GI →</a>
-          <div class="module-tag coming">Urology</div>
-          <div class="module-tag coming">Head &amp; Neck</div>
+        <span class="site-badge site-badge-live">Available →</span>
+      </a>
+
+      <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="site-row site-active">
+        <div class="site-row-left">
+          <div class="site-name">Surgical Risk Calculator</div>
+          <div class="site-sub">30-day mortality · Clavien-Dindo III–V · SORT / ACS NSQIP coefficients</div>
         </div>
+        <span class="site-badge site-badge-live">Available →</span>
+      </a>
+
+      <div class="site-row site-soon">
+        <div class="site-row-left">
+          <div class="site-name">Frailty &amp; Fitness for Surgery</div>
+          <div class="site-sub">Prehabilitation · fitness optimisation · operative risk stratification</div>
+        </div>
+        <span class="site-badge site-badge-soon">Coming soon</span>
       </div>
 
-      <div class="pillar pillar-soon">
-        <div class="pillar-header">
-          <div class="pillar-icon">🔬</div>
-          <div>
-            <div class="pillar-title">Screening &amp; Surveillance</div>
-            <div class="pillar-status soon">Coming soon</div>
-          </div>
+      <div class="site-row site-soon">
+        <div class="site-row-left">
+          <div class="site-name">Anastomotic Risk</div>
+          <div class="site-sub">Leak prediction · stoma decision support</div>
         </div>
-        <div class="pillar-body">Personalised screening interval decisions. High-risk family assessment. Post-polyp and post-treatment surveillance. Lynch syndrome and hereditary cancer pathways.</div>
-        <div class="pillar-modules">
-          <div class="module-tag coming">Colorectal screening</div>
-          <div class="module-tag coming">Post-polyp surveillance</div>
-          <div class="module-tag coming">Lynch syndrome</div>
-          <div class="module-tag coming">High-risk families</div>
-        </div>
-      </div>
-
-      <div class="pillar pillar-live">
-        <div class="pillar-header">
-          <div class="pillar-icon">⚕️</div>
-          <div>
-            <div class="pillar-title">Surgical Decisions</div>
-            <div class="pillar-status live">Available now</div>
-          </div>
-        </div>
-        <div class="pillar-body">Decision support at the point of surgery. Acute appendicitis risk stratification, surgical risk scoring for operative planning, and pre-consent risk estimation.</div>
-        <div class="pillar-modules">
-          <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="module-tag active">Appendicitis Risk Score →</a>
-          <a href="https://hummingbird-bjnif4pt5eqk6wlw2re2ps.streamlit.app" target="_blank" class="module-tag active">Surgical Risk Calculator →</a>
-          <div class="module-tag coming">Frailty &amp; fitness for surgery</div>
-          <div class="module-tag coming">Anastomotic risk</div>
-        </div>
-      </div>
-
-      <div class="pillar pillar-soon">
-        <div class="pillar-header">
-          <div class="pillar-icon">📈</div>
-          <div>
-            <div class="pillar-title">Cancer Follow-up</div>
-            <div class="pillar-status soon">Coming soon</div>
-          </div>
-        </div>
-        <div class="pillar-body">Post-treatment surveillance decisions. Recurrence risk stratification. When to re-investigate. Structured follow-up pathways replacing inconsistent outpatient review.</div>
-        <div class="pillar-modules">
-          <div class="module-tag coming">Colorectal follow-up</div>
-          <div class="module-tag coming">Recurrence risk</div>
-          <div class="module-tag coming">Surveillance intervals</div>
-          <div class="module-tag coming">Discharge planning</div>
-        </div>
+        <span class="site-badge site-badge-soon">Coming soon</span>
       </div>
 
     </div>
   </section>
 
   <div class="divider"></div>
+
 
   <!-- TRUST -->
   <section class="trust-section" id="why">
